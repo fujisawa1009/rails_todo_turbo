@@ -1,0 +1,11 @@
+<%= form_withmodel: todo,data: {turbo_frame: "todos" },local: false do |form| %>
+      <div>
+        <%= form.label:title %>
+        <%= form.text_field:title %>
+      </div>
+      <div>
+        <%= form.label:completed %>
+        <%= form.check_box:completed %>
+      </div>
+      <%= form.submit%>
+    <% end %>
