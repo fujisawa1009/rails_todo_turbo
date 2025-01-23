@@ -1,2 +1,24 @@
-<h1>Todos#new</h1>
-<p>Find me in app/views/todos/new.html.erb</p>
+<%= turbo_frame_tag "new_todo_form" do %>
+    <div class="form-container">
+      <h2>新規Todo作成</h2>
+      <%= form_with(model: @todo, local: true) do |f| %>
+        <div class="field">
+          <%= f.label :title, "タイトル" %>
+          <%= f.text_field :title %>
+        </div>
+  
+        <div class="field">
+          <%= f.label :description, "説明" %>
+          <%= f.text_area :description %>
+        </div>
+  
+        <div class="actions">
+          <%= f.submit "作成", class: "button" %>
+          <%= link_to "キャンセル", todos_path, 
+              data: { turbo_frame: "new_todo_form" }, 
+              class: "button" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  

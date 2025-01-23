@@ -1,5 +1,18 @@
-<div id="todo_<%= todo.id%>">
-  <p><%= todo.title%><%= todo.completed ?'(Completed)' :'(Pending)' %></p>
-  <%= link_to'Edit', edit_todo_path(todo),data: {turbo_frame: "todo_#{todo.id}" },class: "button"%>
-  <%= link_to'Delete', todo_path(todo),data: {turbo_method: :delete,turbo_confirm: "Are you sure?",turbo_frame: "todos" },class: "button"%>
+<div id="todo_<%= todo.id %>">
+  <p>
+    <%= todo.title %>
+    <%= todo.completed ? '(Completed)' : '(Pending)' %>
+  </p>
+  <%= link_to 'Edit', 
+      edit_todo_path(todo),
+      data: { turbo_frame: "todo_#{todo.id}" },
+      class: "button" %>
+  <%= link_to 'Delete',
+      todo_path(todo),
+      data: { 
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?",
+        turbo_frame: "todos"
+      },
+      class: "button" %>
 </div>
